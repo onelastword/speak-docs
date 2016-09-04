@@ -4,11 +4,12 @@ import createLogger from 'redux-logger';
 import { hashHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
 import rootReducer from '../reducers';
+import projectPath from '../middleware/project-path';
 
-import * as counterActions from '../actions/counter';
+import * as projectPathActions from '../actions/project-path';
 
 const actionCreators = {
-  ...counterActions,
+  ...projectPathActions,
   push,
 };
 
@@ -20,7 +21,7 @@ const logger = createLogger({
 const router = routerMiddleware(hashHistory);
 
 const enhancer = compose(
-  applyMiddleware(thunk, router, logger),
+  applyMiddleware(thunk, router, logger, projectPath),
   window.devToolsExtension ?
     window.devToolsExtension({ actionCreators }) :
     noop => noop
