@@ -15,20 +15,21 @@ export default class Editor extends Component {
     // State
     tabs: PropTypes.array.isRequired,
     projectPath: PropTypes.string.isRequired,
+    currentFile: PropTypes.object.isRequired,
     directoryTree: PropTypes.object.isRequired,
   };
 
   render() {
     const {
       chooseDirectory, addTab, removeTab,
-      projectPath, directoryTree, tabs,
+      tabs, projectPath, currentFile, directoryTree,
     } = this.props;
 
     return (
       <div className={style.fullscreen}>
         <Nav projectPath={projectPath} chooseDirectory={chooseDirectory} />
         <div className={style.editorPane}>
-          <TreeView directoryTree={directoryTree} addTab={addTab} />
+          <TreeView directoryTree={directoryTree} currentFile={currentFile} addTab={addTab} />
           <div className={style.tabContainer}>
             <TabView tabs={tabs} removeTab={removeTab} />
           </div>

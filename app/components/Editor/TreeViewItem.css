@@ -1,5 +1,19 @@
-.item {
+.item span {
+  position: relative;
+  z-index: 1;
+}
 
+.itemActive span {
+  color: #e0e0e0;
+}
+
+.itemActive::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 1.2em;
+  background: #424242;
 }
 
 .title {

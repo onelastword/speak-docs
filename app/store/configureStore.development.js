@@ -5,6 +5,7 @@ import { hashHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
 import rootReducer from '../reducers';
 import projectPath from '../middleware/project-path';
+import currentFile from '../middleware/current-file';
 
 import * as projectPathActions from '../actions/project-path';
 
@@ -21,7 +22,7 @@ const logger = createLogger({
 const router = routerMiddleware(hashHistory);
 
 const enhancer = compose(
-  applyMiddleware(projectPath, thunk, router, logger),
+  applyMiddleware(projectPath, currentFile, thunk, router, logger),
   window.devToolsExtension ?
     window.devToolsExtension({ actionCreators }) :
     noop => noop

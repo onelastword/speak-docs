@@ -8,15 +8,16 @@ export default class TreeView extends Component {
     addTab: PropTypes.func.isRequired,
 
     // State
+    currentFile: PropTypes.object.isRequired,
     directoryTree: PropTypes.object.isRequired,
   };
 
   render() {
-    const { addTab, directoryTree } = this.props;
+    const { addTab, currentFile, directoryTree } = this.props;
 
     return (
       <ul className={styles.sidebar}>
-        <TreeViewItem directoryTree={directoryTree} addTab={addTab} />
+        <TreeViewItem directoryTree={directoryTree} currentFile={currentFile} addTab={addTab} />
       </ul>
     );
   }

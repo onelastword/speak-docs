@@ -8,6 +8,7 @@ export default class TreeViewItem extends Component {
     addTab: PropTypes.func.isRequired,
 
     // State
+    currentFile: PropTypes.object.isRequired,
     directoryTree: PropTypes.object.isRequired,
   };
 
@@ -28,13 +29,26 @@ export default class TreeViewItem extends Component {
     }
   }
 
+  getItemStyle() {
+    const { currentFile, directoryTree } = this.props;
+
+    if (currentFile === directoryTree) {
+      return `${styles.item} ${styles.itemActive}`;
+    }
+
+    return styles.item;
+  }
+
   childFiles() {
-    const { addTab, directoryTree: { children } } = this.props;
+    const { addTab, currentFile, directoryTree: { children } } = this.props;
 
     if (this.state.isOpen && children) {
       return (<ul>
         {children.map((file) => (
-          <TreeViewItem key={file.path} directoryTree={file} addTab={addTab} />
+          <TreeViewItem
+            key={file.path} currentFile={currentFile}
+            directoryTree={file} addTab={addTab}
+          />
         ))}
       </ul>);
     }
@@ -58,10 +72,10 @@ export default class TreeViewItem extends Component {
     const { directoryTree } = this.props;
 
     return (
-      <li className={styles.item}>
+      <li className={this.getItemStyle()}>
         <p className={styles.title} onClick={this.choose.bind(this)}>
-          {this.getIcon()}
-          {directoryTree.name}
+          <span>{this.getIcon()}
+          {directoryTree.name}</span>
         </p>
         {this.childFiles()}
       </li>
