@@ -6,7 +6,8 @@ import * as ProjectPathActions from '../actions/project-path';
 
 function mapStateToProps(state) {
   return {
-    projectPath: state.projectPath
+    projectPath: state.projectPath,
+    directoryTree: state.directoryTree
   };
 }
 
