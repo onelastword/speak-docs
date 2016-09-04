@@ -29,8 +29,16 @@ export default class TreeViewItem extends Component {
 
     if (this.state.isOpen && children) {
       return (<ul>
-        {children.map((file) => (<TreeViewItem directoryTree={file} />))}
+        {children.map((file) => (<TreeViewItem key={file.path} directoryTree={file} />))}
       </ul>);
+    }
+  }
+
+  choose() {
+    const { directoryTree: { children } } = this.props;
+
+    if (children) {
+      this.expand();
     }
   }
 
@@ -43,7 +51,7 @@ export default class TreeViewItem extends Component {
 
     return (
       <li className={styles.item}>
-        <p className={styles.title} onClick={this.expand.bind(this)}>
+        <p className={styles.title} onClick={this.choose.bind(this)}>
           {this.getIcon()}
           {directoryTree.name}
         </p>
