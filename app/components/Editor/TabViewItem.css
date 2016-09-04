@@ -1,0 +1,9 @@
+.item {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.item + .item {
+  border-left: 1px solid rgba(224,224,224, 0.4);
+}

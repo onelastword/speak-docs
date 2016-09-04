@@ -7,6 +7,7 @@ import * as TabsActions from '../actions/tabs';
 
 function mapStateToProps(state) {
   return {
+    tabs: state.tabs,
     projectPath: state.projectPath,
     directoryTree: state.directoryTree
   };

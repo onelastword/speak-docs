@@ -1,9 +1,11 @@
-.sidebar {
+.navbar {
+  display: flex;
   position: relative;
-  z-index: 3;
-  color: #424242;
+  z-index: 2;
+  padding: 0;
+
+  background: #424242;
+  color: #e0e0e0;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
     0 2px 10px 0 rgba(0,0,0,0.12);
-  padding: 0.5rem;
-  overflow: scroll;
 }
