@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import TreeViewItem from './TreeViewItem';
 import styles from './TreeView.css';
 
 export default class TreeView extends Component {
@@ -11,7 +12,7 @@ export default class TreeView extends Component {
 
     return (
       <ul className={styles.sidebar}>
-        <li>{directoryTree.name}</li>
+        <TreeViewItem directoryTree={directoryTree} />
       </ul>
     );
   }
