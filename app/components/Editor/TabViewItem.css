@@ -1,4 +1,5 @@
 .item {
+  position: relative;
   flex-grow: 1;
   text-align: center;
   padding: 0.5rem;
@@ -6,4 +7,30 @@
 
 .item + .item {
   border-left: 1px solid rgba(224,224,224, 0.4);
+}
+
+.removeButton {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: none;
+  border: 0;
+  border-radius: 0.2rem;
+
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+
+  cursor: pointer;
+  opacity: 0.1;
+}
+
+.item:hover .removeButton {
+  opacity: 0.4;
+}
+
+.removeButton:hover {
+  background: rgba(224,224,224, 0.2);
 }

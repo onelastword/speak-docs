@@ -5,19 +5,19 @@ import styles from './TabView.css';
 export default class TabView extends Component {
   static propTypes = {
     // Actions
-    // addTab: PropTypes.func.isRequired,
+    removeTab: PropTypes.func.isRequired,
 
     // State
     tabs: PropTypes.array.isRequired,
   };
 
   render() {
-    const { tabs } = this.props;
+    const { tabs, removeTab } = this.props;
 
     return (
       <ul className={styles.navbar}>
         {tabs.map((file) => (
-          <TabViewItem key={file.path} file={file} />
+          <TabViewItem key={file.path} file={file} removeTab={removeTab} />
         ))}
       </ul>
     );
