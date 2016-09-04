@@ -14,6 +14,7 @@ export default class Editor extends Component {
 
     // State
     tabs: PropTypes.array.isRequired,
+    savedFile: PropTypes.string.isRequired,
     projectPath: PropTypes.string.isRequired,
     currentFile: PropTypes.object.isRequired,
     directoryTree: PropTypes.object.isRequired,
@@ -22,7 +23,7 @@ export default class Editor extends Component {
   render() {
     const {
       chooseDirectory, addTab, removeTab,
-      tabs, projectPath, currentFile, directoryTree,
+      tabs, savedFile, projectPath, currentFile, directoryTree,
     } = this.props;
 
     return (
@@ -32,6 +33,7 @@ export default class Editor extends Component {
           <TreeView directoryTree={directoryTree} currentFile={currentFile} addTab={addTab} />
           <div className={style.tabContainer}>
             <TabView tabs={tabs} removeTab={removeTab} />
+            <code><pre>{savedFile}</pre></code>
           </div>
         </div>
       </div>

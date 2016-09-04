@@ -102,6 +102,7 @@
     "font-awesome": "^4.6.3",
     "postcss": "^5.1.2",
     "react": "^15.3.1",
+    "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.1",
     "react-fontawesome": "^1.1.0",
     "react-redux": "^4.4.5",
