@@ -13,7 +13,7 @@ export default class Home extends Component {
       <div>
         <div className={styles.container}>
           <h2>Let's Get Started</h2>
-          <button onClick={chooseDirectory}>
+          <button className={styles.button} onClick={chooseDirectory}>
             Choose Project
           </button>
         </div>

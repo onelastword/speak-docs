@@ -9,6 +9,17 @@
   font-size: 5rem;
 }
 
-.container a {
-  font-size: 1.4rem;
+.button {
+  padding: 0.5rem;
+  border: 0;
+  outline: none;
+
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
+    0 2px 10px 0 rgba(0,0,0,0.12);
+
+  background: #2e7d32;
+  color: #eee;
+
+  font-size: inherit;
+  font-weight: lighter;
 }

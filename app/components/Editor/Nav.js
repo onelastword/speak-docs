@@ -13,7 +13,7 @@ export default class Nav extends Component {
     return (
       <div className={styles.container}>
         <p className={styles.projectPath}>{projectPath}</p>
-        <button onClick={chooseDirectory}>Change Project</button>
+        <button className={styles.button} onClick={chooseDirectory}>Change Project</button>
       </div>
     );
   }
