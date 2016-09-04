@@ -8,6 +8,7 @@ export default class Editor extends Component {
   static propTypes = {
     // Actions
     chooseDirectory: PropTypes.func.isRequired,
+    addTab: PropTypes.func.isRequired,
 
     // State
     projectPath: PropTypes.string.isRequired,
@@ -15,12 +16,12 @@ export default class Editor extends Component {
   };
 
   render() {
-    const { chooseDirectory, projectPath, directoryTree } = this.props;
+    const { chooseDirectory, addTab, projectPath, directoryTree } = this.props;
     return (
       <div className={style.fullscreen}>
         <Nav projectPath={projectPath} chooseDirectory={chooseDirectory} />
         <div className={style.editorPane}>
-          <TreeView directoryTree={directoryTree} />
+          <TreeView directoryTree={directoryTree} addTab={addTab} />
         </div>
       </div>
     );

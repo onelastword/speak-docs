@@ -4,15 +4,19 @@ import styles from './TreeView.css';
 
 export default class TreeView extends Component {
   static propTypes = {
+    // Actions
+    addTab: PropTypes.func.isRequired,
+
+    // State
     directoryTree: PropTypes.object.isRequired,
   };
 
   render() {
-    const { directoryTree } = this.props;
+    const { addTab, directoryTree } = this.props;
 
     return (
       <ul className={styles.sidebar}>
-        <TreeViewItem directoryTree={directoryTree} />
+        <TreeViewItem directoryTree={directoryTree} addTab={addTab} />
       </ul>
     );
   }

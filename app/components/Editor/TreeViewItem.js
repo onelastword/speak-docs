@@ -4,6 +4,10 @@ import styles from './TreeViewItem.css';
 
 export default class TreeViewItem extends Component {
   static propTypes = {
+    // Actions
+    addTab: PropTypes.func.isRequired,
+
+    // State
     directoryTree: PropTypes.object.isRequired,
   };
 
@@ -25,21 +29,25 @@ export default class TreeViewItem extends Component {
   }
 
   childFiles() {
-    const { directoryTree: { children } } = this.props;
+    const { addTab, directoryTree: { children } } = this.props;
 
     if (this.state.isOpen && children) {
       return (<ul>
-        {children.map((file) => (<TreeViewItem key={file.path} directoryTree={file} />))}
+        {children.map((file) => (
+          <TreeViewItem key={file.path} directoryTree={file} addTab={addTab} />
+        ))}
       </ul>);
     }
   }
 
   choose() {
-    const { directoryTree: { children } } = this.props;
+    const { addTab, directoryTree, directoryTree: { children } } = this.props;
 
     if (children) {
-      this.expand();
+      return this.expand();
     }
+
+    return addTab(directoryTree);
   }
 
   expand() {
