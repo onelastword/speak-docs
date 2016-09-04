@@ -4,14 +4,16 @@ import styles from './Nav.css';
 export default class Nav extends Component {
   static propTypes = {
     projectPath: PropTypes.string.isRequired,
+    chooseDirectory: PropTypes.func.isRequired
   };
 
   render() {
-    const { projectPath } = this.props;
+    const { projectPath, chooseDirectory } = this.props;
 
     return (
       <div className={styles.container}>
         <p className={styles.projectPath}>{projectPath}</p>
+        <button onClick={chooseDirectory}>Change Project</button>
       </div>
     );
   }

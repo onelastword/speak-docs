@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import electron from 'electron';
 import styles from './Home.css';
+
 
 export default class Home extends Component {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Home extends Component {
         <div className={styles.container}>
           <h2>Let's Get Started</h2>
           <button onClick={chooseDirectory}>
-            Choose File
+            Choose Project
           </button>
         </div>
       </div>
