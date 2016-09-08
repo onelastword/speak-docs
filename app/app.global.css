@@ -1,3 +1,6 @@
+@import "../node_modules/codemirror/lib/codemirror.css";
+@import "../node_modules/codemirror/theme/ambiance.css";
+
 body {
   margin: 0;
   position: relative;
@@ -37,4 +40,25 @@ a:hover {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
+}
+
+.CodeMirror {
+  height: auto;
+  min-height: 100%;
+}
+
+.cm-s-ambiance .cm-header {
+  color: #2e7d32;
+}
+
+.cm-s-ambiance .CodeMirror-gutters {
+  background: #424242;
+}
+
+.cm-s-ambiance .CodeMirror-linenumber {
+  color: #9e9e9e;
+}
+
+.cm-s-ambiance.CodeMirror, .cm-s-ambiance .CodeMirror-gutters{
+  background-image: none;
 }
