@@ -1,6 +1,7 @@
-import { SELECT_FILE, selectFile, setFileSavedContents } from '../actions/current-file';
-import { ADD_TAB } from '../actions/tabs';
 import fs from 'fs';
+
+import { SELECT_FILE, clearFile, selectFile, setFileSavedContents } from '../actions/current-file';
+import { ADD_TAB, REMOVE_TAB } from '../actions/tabs';
 
 
 const projectPath = store => next => action => {
@@ -14,6 +15,10 @@ const projectPath = store => next => action => {
     fs.readFile(action.file.path, 'utf8', (err, data) => {
       store.dispatch(setFileSavedContents(data));
     });
+  }
+
+  if (action.type === REMOVE_TAB && store.getState().tabs.length === 0) {
+    store.dispatch(clearFile());
   }
 
   return result;
