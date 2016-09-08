@@ -9,15 +9,16 @@ export default class TabView extends Component {
 
     // State
     tabs: PropTypes.array.isRequired,
+    currentFile: PropTypes.object.isRequired,
   };
 
   render() {
-    const { tabs, removeTab } = this.props;
+    const { tabs, removeTab, currentFile } = this.props;
 
     return (
       <ul className={styles.navbar}>
         {tabs.map((file) => (
-          <TabViewItem key={file.path} file={file} removeTab={removeTab} />
+          <TabViewItem key={file.path} file={file} removeTab={removeTab} currentFile={currentFile} />
         ))}
       </ul>
     );

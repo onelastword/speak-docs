@@ -49,7 +49,7 @@ export default class Editor extends Component {
         <div className={style.editorPane}>
           <TreeView directoryTree={directoryTree} currentFile={currentFile} addTab={addTab} />
           <div className={style.tabContainer}>
-            <TabView tabs={tabs} removeTab={removeTab} />
+            <TabView tabs={tabs} removeTab={removeTab} currentFile={currentFile} />
             <div className={style.editorPane}>
               <CodeMirror
                 className={style.editorContainer} value={savedFile}

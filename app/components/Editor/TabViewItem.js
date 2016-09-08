@@ -9,7 +9,18 @@ export default class TabViewItem extends Component {
 
     // State
     file: PropTypes.object.isRequired,
+    currentFile: PropTypes.object.isRequired,
   };
+
+  getIcon() {
+    const { currentFile, file } = this.props;
+
+    if (currentFile === file) {
+      return (<FontAwesome name="microphone-slash" />);
+    }
+
+    return;
+  }
 
   remove() {
     const { file, removeTab } = this.props;
@@ -22,7 +33,7 @@ export default class TabViewItem extends Component {
 
     return (
       <li className={styles.item}>
-        {file.name}
+        {this.getIcon()} {file.name}
         <button className={styles.removeButton} onClick={this.remove.bind(this)}>
           <FontAwesome name="times" fixedWidth />
         </button>
