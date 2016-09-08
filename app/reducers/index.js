@@ -4,6 +4,7 @@ import projectPath from './project-path';
 import directoryTree from './directory-tree';
 import currentFile from './current-file';
 import savedFile from './saved-file';
+import editedFile from './edited-file';
 import tabs from './tabs';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   projectPath,
   currentFile,
   savedFile,
+  editedFile,
   routing,
   tabs,
 });

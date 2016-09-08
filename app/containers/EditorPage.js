@@ -9,6 +9,7 @@ import * as CurrentFileActions from '../actions/current-file';
 function mapStateToProps(state) {
   return {
     tabs: state.tabs,
+    editedFile: state.editedFile,
     savedFile: state.savedFile,
     currentFile: state.currentFile,
     projectPath: state.projectPath,

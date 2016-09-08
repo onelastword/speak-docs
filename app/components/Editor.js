@@ -19,10 +19,12 @@ export default class Editor extends Component {
     addTab: PropTypes.func.isRequired,
     removeTab: PropTypes.func.isRequired,
     selectFile: PropTypes.func.isRequired,
+    setFileEditedContents: PropTypes.func.isRequired,
 
     // State
     tabs: PropTypes.array.isRequired,
     savedFile: PropTypes.string.isRequired,
+    editedFile: PropTypes.string.isRequired,
     projectPath: PropTypes.string.isRequired,
     currentFile: PropTypes.object.isRequired,
     directoryTree: PropTypes.object.isRequired,
@@ -30,8 +32,8 @@ export default class Editor extends Component {
 
   render() {
     const {
-      chooseDirectory, addTab, removeTab, selectFile,
-      tabs, savedFile, projectPath, currentFile, directoryTree,
+      chooseDirectory, addTab, removeTab, selectFile, setFileEditedContents,
+      tabs, editedFile, projectPath, currentFile, directoryTree,
     } = this.props;
 
     const codeMirrorOptions = {
@@ -56,7 +58,8 @@ export default class Editor extends Component {
             />
             <div className={style.editorPane}>
               <CodeMirror
-                className={style.editorContainer} value={savedFile}
+                onChange={setFileEditedContents}
+                className={style.editorContainer} value={editedFile}
                 options={codeMirrorOptions}
               />
             </div>
