@@ -6,6 +6,7 @@ import { ADD_TAB, REMOVE_TAB } from '../actions/tabs';
 
 const projectPath = store => next => action => {
   const result = next(action);
+  const { tabs } = store.getState();
 
   if (action.type === ADD_TAB) {
     store.dispatch(selectFile(action.file));
@@ -17,8 +18,12 @@ const projectPath = store => next => action => {
     });
   }
 
-  if (action.type === REMOVE_TAB && store.getState().tabs.length === 0) {
+  if (action.type === REMOVE_TAB && tabs.length === 0) {
     store.dispatch(clearFile());
+  }
+
+  if (action.type === REMOVE_TAB && tabs.length !== 0) {
+    store.dispatch(selectFile(tabs[tabs.length - 1]));
   }
 
   return result;
