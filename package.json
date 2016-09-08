@@ -99,6 +99,7 @@
     "css-modules-require-hook": "^4.0.2",
     "directory-tree": "^1.1.0",
     "electron-debug": "^1.0.1",
+    "electron-speech": "^1.0.3",
     "font-awesome": "^4.6.3",
     "postcss": "^5.1.2",
     "react": "^15.3.1",

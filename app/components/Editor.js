@@ -19,6 +19,7 @@ export default class Editor extends Component {
     addTab: PropTypes.func.isRequired,
     removeTab: PropTypes.func.isRequired,
     selectFile: PropTypes.func.isRequired,
+    toggleSpeech: PropTypes.func.isRequired,
     setFileEditedContents: PropTypes.func.isRequired,
 
     // State
@@ -32,7 +33,7 @@ export default class Editor extends Component {
 
   render() {
     const {
-      chooseDirectory, addTab, removeTab, selectFile, setFileEditedContents,
+      chooseDirectory, addTab, removeTab, selectFile, setFileEditedContents, toggleSpeech,
       tabs, editedFile, projectPath, currentFile, directoryTree,
     } = this.props;
 
@@ -63,6 +64,7 @@ export default class Editor extends Component {
                 options={codeMirrorOptions}
               />
             </div>
+            <button onClick={toggleSpeech}>Toggle Speech</button>
           </div>
         </div>
       </div>
